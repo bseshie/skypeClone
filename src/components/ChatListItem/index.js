@@ -1,4 +1,29 @@
 import {Text,View,Image,StyleSheet} from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import { StatusBar} from 'react-native';
+import SkypeContacts from './screens/SkypeContacts';
+import ContactScreen from 'screens\ContactScreen.js';
+
+export default class App extends React.Component {
+    constructor() {
+      super();
+      StatusBar.setHidden(true);
+    }
+    render() {
+      return (
+        <ScreenNavigator />
+      );
+    }
+  }
+  
+  const ScreenNavigator = StackNavigator({
+    Home: { screen: ContactScreen },
+   Skype: { screen: SkypeContacts },
+  })
+
+
+
+
 
 
 const ChatListItem = (chat) => {
@@ -59,4 +84,4 @@ subtitle:{
 
 
 
-export default ChatListItem;
+'export default ChatListItem;'
