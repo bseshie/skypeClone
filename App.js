@@ -1,43 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ChatListItem  from './src/components/ChatListItem';
-import ChatScreen from './screens/ChatScreen';
- 
-const chat ={
-  "id": "1",
-  "user": {
-    "id": "u2",
-    "name": "Reece",
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/lukas.jpeg",
-    "status": "Hey there!"
-  },
-  "lastMessage": {
-    "id": "m1",
-    "text": "Well done this sprint, guys!",
-    "createdAt": "2022-10-14T13:30:00.000Z"
-  },
-};
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
+import { StatusBar,View } from 'react-native';
+import ContactScreen from '.screens\ContactScreen.js';
+import ContactDetails from 'screens\ContactDetails.js';
+import { View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-     < ChatListItem chat={chat}/>
-     < ChatListItem />
-     < ChatListItem />
-     < ChatListItem />
-     < ChatListItem />
-     < ChatListItem />
-
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class App extends React.Component {
+  constructor() {
+    super();
+    StatusBar.setHidden(true);
+  }
+  render() {
+    return (
+      <ScreenNavigator /> 
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const ScreenNavigator = StackNavigator({
+  Home: { screen: ContactScreen },
+  Details: { screen: ContactDetails },
+})
+
